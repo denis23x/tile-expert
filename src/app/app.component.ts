@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+/** @format */
+
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from '../standalone/components/header/header.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+	selector: 'app-root',
+	standalone: true,
+	imports: [CommonModule, RouterOutlet, RouterLink, HeaderComponent],
+	templateUrl: './app.component.html',
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-  title = 'tile-expert';
-}
+export class AppComponent {}

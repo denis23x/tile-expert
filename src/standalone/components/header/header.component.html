@@ -1,0 +1,102 @@
+<!-- @format -->
+
+<ng-container>
+	<div class="bg-[#1074CC] text-white/80">
+		<div class="flex items-center justify-between gap-1 xl:gap-4 max-w-[1440px] mx-auto px-4">
+			<nav class="flex items-center justify-start gap-4">
+				<button class="hover:text-white xl:hidden">
+					<i appSvgIcon appSvgIconName="menu"></i>
+				</button>
+				<a href="/">
+					<img src="assets/images/logo.png" width="150" height="56" alt="Tile Expert" />
+				</a>
+			</nav>
+			<nav class="flex items-center flex-row-reverse xl:flex-row gap-1 xl:gap-4 flex-1 relative">
+				<div
+					class="flex items-center gap-1 xl:gap-4 xl:absolute xl:inset-0 xl:size-full bg-[#1074CC] xl:transition-[width] overflow-hidden xl:z-10"
+					[ngClass]="searchIsVisible() ? 'xl:w-0' : 'xl:w-[704px]'"
+				>
+					<ul class="flex items-center xl:px-7 xl:[&>li]:pl-3 xl:[&>li]:pr-4">
+						<li class="hidden xl:block">
+							<a class="flex items-center gap-2 hover:text-white" href="/">
+								<i appSvgIcon appSvgIconName="link"></i>
+								<span class="text-sm">Ссылки</span>
+							</a>
+						</li>
+						<li class="hidden xl:block">
+							<a class="flex items-center gap-2 hover:text-white" href="/">
+								<i appSvgIcon appSvgIconName="users"></i>
+								<span class="text-sm">Контакты</span>
+							</a>
+						</li>
+						<li class="hidden xl:block">
+							<a class="flex items-center gap-2 hover:text-white" href="/">
+								<i appSvgIcon appSvgIconName="tags"></i>
+								<span class="text-sm">Теги</span>
+							</a>
+						</li>
+						<li class="hidden xl:block">
+							<a class="flex items-center gap-2 hover:text-white" href="/">
+								<i appSvgIcon appSvgIconName="favourites"></i>
+								<span class="text-sm">Избранное</span>
+							</a>
+						</li>
+						<li>
+							<a
+								class="flex items-center justify-center xl:justify-start gap-2 hover:text-white size-10 xl:size-auto aspect-square xl:aspect-auto"
+								href="/"
+							>
+								<i appSvgIcon appSvgIconName="visits"></i>
+								<span class="hidden xl:inline text-sm">Посещения</span>
+							</a>
+						</li>
+					</ul>
+					<button
+						class="flex items-center justify-center hover:text-white size-10 aspect-square"
+						(click)="searchToggle($event)"
+					>
+						<i appSvgIcon appSvgIconName="search"></i>
+					</button>
+				</div>
+				<form
+					id="header-search-form"
+					class="bg-white xl:bg-transparent w-full xl:w-[704px] fixed inset-0 xl:inset-auto transition-[left] xl:relative xl:block px-4 xl:px-0 z-10 xl:z-0"
+					[ngClass]="searchIsVisible() ? 'visible opacity-100 left-0' : 'invisible opacity-0 -left-full'"
+				>
+					<div class="flex items-center gap-4 xl:gap-0">
+						<button type="button" id="header-search-form-close" class="block xl:hidden">
+							<i appSvgIcon appSvgIconName="back"></i>
+						</button>
+						<input
+							class="placeholder:opacity-80 focus:outline-0 bg-[#F5F5F5] xl:bg-white text-[#2A3033] h-12 xl:h-full w-full rounded-full xl:rounded truncate text-sm my-1 xl:my-0 p-4"
+							type="text"
+							placeholder="Поисковый запрос"
+							(focus)="extrasIsVisible.set(true)"
+						/>
+					</div>
+					<div
+						class="absolute left-0 top-14 xl:top-full flex items-start justify-between bg-white text-[#2A3033] xl:rounded xl:shadow-lg xl:max-h-[228px] w-full transition-opacity overflow-hidden xl:mt-0.5"
+						[ngClass]="extrasIsVisible() ? 'xl:visible xl:opacity-100' : 'xl:invisible xl:opacity-0'"
+						appHeaderExtra
+					></div>
+				</form>
+				<button class="flex items-center justify-center hover:text-white size-10 aspect-square">
+					<i appSvgIcon appSvgIconName="plus"></i>
+				</button>
+			</nav>
+			<nav class="flex items-center justify-end gap-3">
+				<button class="flex items-center justify-center hover:text-white size-10 aspect-square relative">
+					<i appSvgIcon appSvgIconName="bell"></i>
+					<span
+						class="hidden xl:inline absolute top-0 right-0 bg-[#CC1910] text-[11px] text-white rounded-full border border-[#1074CC] py-px px-1"
+					>
+						32
+					</span>
+				</button>
+				<a href="/" class="hidden xl:flex items-center justify-center size-10 aspect-square">
+					<img src="assets/images/avatar.png" width="32" height="32" alt="Avatar" />
+				</a>
+			</nav>
+		</div>
+	</div>
+</ng-container>

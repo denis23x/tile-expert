@@ -1,0 +1,63 @@
+<!-- @format -->
+
+<ng-container>
+	<div class="hidden xl:flex flex-col max-w-[216px] w-full border-r border-[#E1E4E6]">
+		<span class="text-xs text-[#7F878C] pt-4 pb-2 px-4">История</span>
+		<div class="relative">
+			<span class="absolute top-0 h-5 w-full bg-gradient-to-b from-white to-transparent pointer-events-none"></span>
+			<ul class="flex flex-col items-start overflow-auto max-h-[188px]">
+				@for (item of history; track $index) {
+					<li class="text-sm leading-5">
+						<a href="/" class="block hover:underline py-1.5 px-4">{{ item }}</a>
+					</li>
+				}
+			</ul>
+			<span class="absolute bottom-0 h-5 w-full bg-gradient-to-t from-white to-transparent pointer-events-none"></span>
+		</div>
+	</div>
+	<form class="flex flex-col gap-4 size-full p-4 xl:p-5">
+		<fieldset class="relative">
+			<label class="absolute -top-1.5 left-3 bg-white text-xs text-[#8C9499] px-1" for="header-extra-author">
+				Автор
+			</label>
+			<input
+				id="header-extra-author"
+				class="border border-[#E1E4E6] placeholder:opacity-80 focus:outline-0 focus:border-[#1074CC] transition-colors text-[#2A3033] rounded truncate w-full pl-4 pr-12 py-3.5"
+				type="text"
+				placeholder="Имя или должность"
+			/>
+			<i class="absolute right-4 top-1/2 -translate-y-1/2" appSvgIcon appSvgIconName="me"></i>
+		</fieldset>
+		<fieldset class="flex flex-col xl:flex-row xl:items-center gap-2">
+			<label appCheckbox>
+				<input type="checkbox" class="hidden peer" slot="input" />
+				<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">Я участник</span>
+			</label>
+			<label appCheckbox>
+				<input type="checkbox" class="hidden peer" slot="input" />
+				<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">Строгий поиск</span>
+			</label>
+			<label appCheckbox>
+				<input type="checkbox" class="hidden peer" slot="input" />
+				<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">В заголовках</span>
+			</label>
+		</fieldset>
+		<fieldset class="flex flex-col gap-1">
+			<span class="text-sm">Только</span>
+			<div class="flex flex-col xl:flex-row xl:items-center gap-2">
+				<label appCheckbox>
+					<input type="checkbox" class="hidden peer" slot="input" />
+					<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">Теги</span>
+				</label>
+				<label appCheckbox>
+					<input type="checkbox" class="hidden peer" slot="input" />
+					<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">Просьбы</span>
+				</label>
+				<label appCheckbox>
+					<input type="checkbox" class="hidden peer" slot="input" />
+					<span class="cursor-pointer text-sm whitespace-nowrap" slot="label">Контакты</span>
+				</label>
+			</div>
+		</fieldset>
+	</form>
+</ng-container>

@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<ng-container>
+	<div class="flex items-center gap-3 cursor-pointer py-1.5 px-3">
+		<ng-content select="[slot=input]"></ng-content>
+		<i
+			class="hidden peer-checked:block text-[#1074CC] xl:!hidden"
+			appSvgIcon
+			appSvgIconSquare="32px"
+			appSvgIconViewBox="0 0 32 32"
+			appSvgIconName="mark-mobile-checked"
+		></i>
+		<i
+			class="block peer-checked:hidden text-[#7F878C] xl:!hidden"
+			appSvgIcon
+			appSvgIconSquare="32px"
+			appSvgIconViewBox="0 0 32 32"
+			appSvgIconName="mark-mobile"
+		></i>
+		<i class="hidden peer-checked:xl:block text-[#1074CC]" appSvgIcon appSvgIconName="mark-desktop-checked"></i>
+		<i class="hidden xl:block peer-checked:hidden text-[#7F878C]" appSvgIcon appSvgIconName="mark-desktop"></i>
+		<ng-content select="[slot=label]"></ng-content>
+	</div>
+</ng-container>
